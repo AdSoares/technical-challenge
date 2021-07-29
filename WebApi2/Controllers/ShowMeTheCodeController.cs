@@ -19,6 +19,10 @@ namespace WebApi2.Controllers
             Configuration = configuration;
         }
 
+        /// <summary>
+        /// Retonar o endereço do repositório no Github.
+        /// </summary>
+        /// <returns>Endereço do repositório Github</returns>
         [HttpGet]
         public string Get()
         {

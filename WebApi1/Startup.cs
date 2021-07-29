@@ -9,6 +9,7 @@ using Microsoft.Extensions.Logging;
 using Microsoft.OpenApi.Models;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
 
@@ -26,11 +27,13 @@ namespace WebApi1
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            var filePath = Path.Combine(System.AppContext.BaseDirectory, "WebApi1.xml");
 
             services.AddControllers();
             services.AddSwaggerGen(c =>
             {
-                c.SwaggerDoc("v1", new OpenApiInfo { Title = "WebApi1", Version = "v1" });
+                c.SwaggerDoc("v1", new OpenApiInfo { Title = "Web Api 1", Version = "v1" });
+                c.IncludeXmlComments(filePath);
             });
         }
 

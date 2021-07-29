@@ -12,6 +12,10 @@ namespace WebApi.Controllers
     [Route("[controller]")]
     public class TaxaJurosController : ControllerBase
     {
+        /// <summary>
+        /// Retorna a taxa de juros aplicável.
+        /// </summary>
+        /// <returns>Valor da taxa de juros a ser aplicada.</returns>
         [HttpGet]
         public IActionResult Get()
         {

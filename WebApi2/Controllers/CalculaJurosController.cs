@@ -12,17 +12,31 @@ using WebApi2.Providers;
 
 namespace WebApi2.Controllers
 {
+    /// <summary>
+    /// Cálculo de juros
+    /// </summary>
     [ApiController]
     [Route("[controller]")]
     public class CalculaJurosController : ControllerBase
     {
         public IConfiguration Configuration { get; }
 
+        /// <summary>
+        /// Construtor da classe.
+        /// </summary>
+        /// <param name="configuration"></param>
         public CalculaJurosController(IConfiguration configuration)
         {
             Configuration = configuration;
         }
 
+        /// <summary>
+        /// Calcula o valor final aplicando juros compostos a partir de um valor inicial e a quantidade de meses que
+        /// o valor irá render.
+        /// </summary>
+        /// <param name="valorInicial">Valor inicial onde serão aplicados os juros.</param>
+        /// <param name="meses">Quantidade de meses que o valor inicial irá render.</param>
+        /// <returns>Valor final com os juros compostos aplicados.</returns>
         [HttpGet]
         public IActionResult Get(double valorInicial, int meses)
         {
